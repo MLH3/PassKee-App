@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Changa:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>PassKee App</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="brand_title">PassKee</h1>
+      <img class="logo" src="/images/fingerprint.svg" alt="Logo" />
+    </header>
+    <main>
+      <section id="password_area">
+        <div class="password_section">
+          <h1 id="password_display">*********</h1>
+          <img
+            id="clipboard_btn"
+            src="/images/clipboard.svg"
+            alt="Clipboard Icon"
+          />
+        </div>
+        <div class="strength_indicator">
+          <p class="strength_label">Strength</p>
+          <div class="indicator weak"></div>
+          <div class="indicator medium"></div>
+          <div class="indicator strong"></div>
+        </div>
+      </section>
+      <section id="main_card">
+        <div class="character_section">
+          <div class="length_section">
+            <p class="length_title">Password Length</p>
+            <p id="password_length" class="length_number">10</p>
+          </div>
+          <input
+            id="range_value"
+            class="slider"
+            type="range"
+            name="PasswordLength"
+            step="1"
+            min="2"
+            max="30"
+          />
+        </div>
+        <div class="checkbox_items">
+          <div class="checkbox_item">
+            <input type="checkbox" name="Uppercase" id="uppercase" />
+            <label for="Uppercase">Uppercase</label>
+          </div>
+          <div class="checkbox_item">
+            <input type="checkbox" name="Lowercase" id="lowercase" />
+            <label for="Lowercase">Lowercase</label>
+          </div>
+          <div class="checkbox_item">
+            <input type="checkbox" name="Numbers" id="numbers" />
+            <label for="Numbers">Numbers</label>
+          </div>
+          <div class="checkbox_item">
+            <input type="checkbox" name="Symbols" id="symbols" />
+            <label for="Symbols">Symbols</label>
+          </div>
+        </div>
+      </section>
+      <section id="generate_section">
+        <button id="generate_btn" class="generate_btn">Generate</button>
+      </section>
+    </main>
+    <script src="index.js"></script>
+    <footer>
+      <p>Coded by <span>Melih</span></p>
+    </footer>
+  </body>
+</html>

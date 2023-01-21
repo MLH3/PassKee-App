@@ -1,0 +1,177 @@
+body {
+  margin: 5rem 0 0;
+  padding: 1rem;
+  background-color: #131313;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Changa", sans-serif;
+}
+
+header {
+  position: relative;
+}
+header .brand_title {
+  color: #d6d6d6;
+  font-size: 4rem;
+  margin: 0;
+  filter: drop-shadow(-10px 10px 4px #131313);
+}
+header .logo {
+  width: 6rem;
+  position: absolute;
+  top: -10px;
+  left: -60px;
+  z-index: -10;
+  rotate: 30deg;
+}
+
+main #password_area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+  padding: 0 2rem;
+  background-color: #252525;
+  border-radius: 0.5rem;
+  height: 100px;
+}
+main #password_area .password_section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+}
+main #password_area .password_section h1 {
+  margin: 0.3rem 0;
+  font-weight: 700;
+  color: rgb(106, 194, 29);
+}
+main #password_area .password_section #clipboard_btn {
+  width: 1rem;
+  transition: 0.3s ease-in-out;
+}
+main #password_area .password_section #clipboard_btn:hover {
+  scale: 1.2;
+  rotate: 5deg;
+  transition: 0.3s ease-in-out;
+}
+main #password_area .password_section #clipboard_btn:active {
+  rotate: -5deg;
+  transition: 0.3s ease-in-out;
+}
+main #password_area .strength_indicator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin: 0 0 1rem;
+}
+main #password_area .strength_indicator .strength_label {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #d6d6d6;
+}
+main #password_area .strength_indicator .indicator {
+  width: 3rem;
+  height: 0.5rem;
+  border: 2px solid #d6d6d6;
+  border-radius: 0.5rem;
+}
+main #main_card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 2rem 2rem;
+  background-color: #252525;
+  border-radius: 0.5rem;
+  color: #d6d6d6;
+}
+main #main_card .character_section .length_section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+main #main_card .character_section .length_section .length_title {
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+main #main_card .character_section .length_section .length_number {
+  font-weight: 900;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  color: rgb(125, 232, 32);
+  margin: 0.5rem 0;
+}
+main #main_card .character_section .slider {
+  width: 100%;
+}
+main #main_card .checkbox_item {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+main #main_card .checkbox_item:last-child {
+  margin: 0.5rem 0 2rem;
+}
+main #generate_section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: -2rem 0;
+}
+main #generate_section .generate_btn {
+  border: none;
+  background-color: rgb(125, 232, 32);
+  color: #252525;
+  width: 80%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-weight: 900;
+  font-size: 1.5rem;
+  transition: 0.3s ease-in-out;
+}
+main #generate_section .generate_btn:hover {
+  scale: 0.97;
+  transition: 0.3s ease-in-out;
+  background-color: rgb(106, 194, 29);
+}
+main #generate_section .generate_btn:active {
+  scale: 0.92;
+  transform: translateY(-0.2rem);
+  background-color: rgb(125, 232, 32);
+  transition: 0.3s ease-in-out;
+}
+
+@media (max-width: 500px) {
+  body {
+    margin: 3rem 0;
+  }
+  header .brand_title {
+    font-size: 3rem;
+  }
+  header .logo {
+    width: 5rem;
+  }
+  main {
+    width: 20rem;
+  }
+  main #password_area .strength_indicator .indicator {
+    width: 2.5rem;
+  }
+}
+footer {
+  margin: 4rem auto 0;
+}
+footer p {
+  color: #d6d6d6;
+}
+footer p span {
+  color: rgb(125, 232, 32);
+}/*# sourceMappingURL=style.css.map */
