@@ -1,90 +1,90 @@
-const uppercase = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
-];
-const lowercase = [
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-  "t",
-  "u",
-  "v",
-  "w",
-  "x",
-  "y",
-  "z",
-];
-const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-const symbols = [
-  "~",
-  "!",
-  "@",
-  "#",
-  "$",
-  "%",
-  "^",
-  "&",
-  "*",
-  "(",
-  ")",
-  "_",
-  "-",
-  "+",
-  "=",
-  "{",
-  "[",
-  "}",
-  "]",
-  ",",
-  "|",
-  ":",
-  ";",
-  "<",
-  ">",
-  ".",
-  "?",
-  "/",
-];
+const characters = {
+  uppercase: [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+  ],
+  lowercase: [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
+  ],
+  numbers: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+  symbols: [
+    "~",
+    "!",
+    "@",
+    "#",
+    "$",
+    "%",
+    "^",
+    "&",
+    "*",
+    "(",
+    ")",
+    "_",
+    "+",
+    "=",
+    "{",
+    "[",
+    "}",
+    "]",
+    ",",
+    ":",
+    ";",
+    "<",
+    ">",
+    ".",
+    "?",
+    "/",
+  ],
+};
 
 const passwordEl = document.querySelector("#password_display");
 const clipboardEl = document.querySelector("#clipboard_btn");
@@ -102,7 +102,12 @@ const medium = document.querySelector(".medium");
 const strong = document.querySelector(".strong");
 
 let passwordCombination = [];
-let strengthPoint = 0;
+let strongReg = new RegExp(
+  "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[~!@#$%^&*()_+={[}]|:;<>.?])(?=.{15,})"
+);
+let mediumReg = new RegExp(
+  "^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})"
+);
 
 passwordLengthEl.textContent = 10;
 rangeEl.value = 10;
@@ -114,11 +119,11 @@ rangeEl.addEventListener("input", () => {
 });
 
 function strength() {
-  if (rangeEl.value >= 17 && strengthPoint >= 3) {
+  if (strongReg.test(passwordEl.textContent)) {
     weak.style.backgroundColor = "#d6d6d6";
     medium.style.backgroundColor = "#d6d6d6";
     strong.style.backgroundColor = "#d6d6d6";
-  } else if (rangeEl.value >= 12 && strengthPoint >= 2) {
+  } else if (mediumReg.test(passwordEl.textContent)) {
     weak.style.backgroundColor = "#d6d6d6";
     medium.style.backgroundColor = "#d6d6d6";
   } else {
@@ -135,26 +140,22 @@ function reset() {
 function generatePassword() {
   for (let i = 0; i < checkbox.length; i++) {
     if (checkbox[i].name.includes("Uppercase") && checkbox[i].checked == true) {
-      passwordCombination = passwordCombination.concat(uppercase);
-      strengthPoint++;
+      passwordCombination = passwordCombination.concat(characters.uppercase);
     } else if (
       checkbox[i].name.includes("Lowercase") &&
       checkbox[i].checked == true
     ) {
-      passwordCombination = passwordCombination.concat(lowercase);
-      strengthPoint++;
+      passwordCombination = passwordCombination.concat(characters.lowercase);
     } else if (
       checkbox[i].name.includes("Numbers") &&
       checkbox[i].checked == true
     ) {
-      passwordCombination = passwordCombination.concat(numbers);
-      strengthPoint++;
+      passwordCombination = passwordCombination.concat(characters.numbers);
     } else if (
       checkbox[i].name.includes("Symbols") &&
       checkbox[i].checked == true
     ) {
-      passwordCombination = passwordCombination.concat(symbols);
-      strengthPoint++;
+      passwordCombination = passwordCombination.concat(characters.symbols);
     }
   }
 
@@ -165,10 +166,8 @@ function generatePassword() {
   } else {
     passwordEl.style.fontSize = "24px";
   }
-
   reset();
   strength();
-  strengthPoint = 0;
   passwordEl.textContent = [];
 
   for (let i = 0; i < rangeEl.value; i++) {
