@@ -166,6 +166,7 @@ function generatePassword() {
     passwordEl.style.fontSize = "24px";
   }
 
+  reset();
   strength();
   strengthPoint = 0;
   passwordEl.textContent = [];
