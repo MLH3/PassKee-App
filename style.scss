@@ -9,6 +9,7 @@ body {
   align-items: center;
   flex-direction: column;
   font-family: "Changa", sans-serif;
+  user-select: none;
 }
 
 header {
@@ -59,6 +60,7 @@ main {
       #clipboard_btn {
         width: 1rem;
         transition: 0.3s ease-in-out;
+        cursor: pointer;
 
         &:hover {
           scale: 1.2;
@@ -129,6 +131,7 @@ main {
       }
       .slider {
         width: 100%;
+        cursor: pointer;
       }
     }
 
@@ -137,6 +140,10 @@ main {
       font-size: 1.1rem;
       &:last-child {
         margin: 0.5rem 0 2rem;
+      }
+
+      input {
+        cursor: pointer;
       }
     }
   }
@@ -156,6 +163,7 @@ main {
       font-weight: 900;
       font-size: 1.5rem;
       transition: 0.3s ease-in-out;
+      cursor: pointer;
 
       &:hover {
         scale: 0.97;
@@ -200,7 +208,7 @@ main {
 }
 
 footer {
-  margin: 4rem auto 0;
+  margin: 3rem auto 0;
   p {
     color: colors.$light;
 
