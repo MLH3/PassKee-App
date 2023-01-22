@@ -177,7 +177,15 @@ function generatePassword() {
   passwordCombination = [];
 }
 
-generateBtn.addEventListener("click", generatePassword);
+generateBtn.addEventListener("click", () => {
+  let checkVal = [];
+  for (const c of checkbox) {
+    checkVal.push(c.checked);
+    checkVal.some((check) => check === true)
+      ? generatePassword()
+      : (passwordEl.textContent = "Choose one option!");
+  }
+});
 
 clipboardEl.addEventListener("click", () => {
   navigator.clipboard.writeText(passwordEl.textContent);
