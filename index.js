@@ -95,7 +95,7 @@ const upperCaseEl = document.querySelector("#uppercase");
 const lowerCaseEl = document.querySelector("#lowercase");
 const numbersEl = document.querySelector("#numbers");
 const symbolsEl = document.querySelector("#symbols");
-const checkbox = document.querySelectorAll("input");
+const checkbox = document.querySelectorAll("input[type=checkbox]");
 const generateBtn = document.querySelector("#generate_btn");
 const weak = document.querySelector(".weak");
 const medium = document.querySelector(".medium");
@@ -123,11 +123,14 @@ function strength() {
     weak.style.backgroundColor = "#d6d6d6";
     medium.style.backgroundColor = "#d6d6d6";
     strong.style.backgroundColor = "#d6d6d6";
+    passwordEl.style.color = "#6AC21D";
   } else if (mediumReg.test(passwordEl.textContent)) {
     weak.style.backgroundColor = "#d6d6d6";
     medium.style.backgroundColor = "#d6d6d6";
+    passwordEl.style.color = "#ffd800";
   } else {
     weak.style.backgroundColor = "#d6d6d6";
+    passwordEl.style.color = "#d62828";
   }
 }
 
@@ -183,7 +186,7 @@ generateBtn.addEventListener("click", () => {
     checkVal.push(c.checked);
     checkVal.some((check) => check === true)
       ? generatePassword()
-      : (passwordEl.textContent = "Choose one option!");
+      : (passwordEl.textContent = "Check At Least One!");
   }
 });
 
